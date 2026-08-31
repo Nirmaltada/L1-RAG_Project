@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local RAG Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-heading">
+          <h1>Chats</h1>
+          <button id="new-chat" class="primary small" type="button">+ New chat</button>
+        </div>
+        <div id="chat-list" class="chat-list" aria-label="Conversations"></div>
+
+        <div class="documents-heading">
+          <h2>Documents</h2>
+          <button id="upload-button" class="secondary small" type="button">+ Upload</button>
+          <input id="file-input" type="file" accept=".pdf,.docx,.txt,.md,.markdown" hidden>
+        </div>
+        <div id="document-list" class="document-list"></div>
+        <p id="upload-status" class="sidebar-status" aria-live="polite"></p>
+      </aside>
+
+      <main class="conversation">
+        <header class="conversation-header">
+          <h2 id="chat-title">Local RAG Chat</h2>
+          <p id="connection-status">Checking backend…</p>
+        </header>
+        <section id="messages" class="messages" aria-live="polite">
+          <div class="empty-state">
+            <h2>Start a conversation</h2>
+            <p>Ask a general question, or upload a document to ground answers in your own material.</p>
+          </div>
+        </section>
+        <div id="error-banner" class="error-banner" role="alert" hidden></div>
+        <form id="composer" class="composer">
+          <textarea id="message-input" rows="1" maxlength="50000" placeholder="Ask something…" aria-label="Message"></textarea>
+          <button id="send-button" class="primary" type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
